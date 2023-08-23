@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/15e297e332.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <header>Weather App</header>
+        <form id="search-form">
+          <input
+            class="entry-field"
+            type="text"
+            placeholder="Enter city"
+            id="entered-value"
+            autofocus
+          /><i
+            class="fa-solid fa-location-dot location-icon"
+            id="get-location"
+          ></i>
+          <br />
+          <input
+            class="submit-button"
+            id="submit-button"
+            type="submit"
+            value="Submit"
+          />
+          <input
+            class="add-button"
+            id="add-button"
+            type="button"
+            value="Add to Favourites"
+          />
+        </form>
+        <div class="card weather-today">
+          <div class="card-body body-weather-today">
+            <div class="row">
+              <div class="col">
+                <i class="fa-solid fa-cloud icon-today"></i>
+
+                <div class="temperature-today" id="temperature-today">18</div>
+                <div class="temp-units">
+                  <span class="celsius" id="celsius">°C</span
+                  ><span class="dash">|</span
+                  ><span class="fahrenheit" id="fahrenheit">°F</span>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row city" id="searched-city">Berlin</div>
+                <div class="row date-time" id="current-date-time">
+                  Thursday, 11:16
+                </div>
+              </div>
+              <div class="col">
+                <div class="row humidity" id="humidity">Humidity: 65%</div>
+                <div class="row wind" id="wind-speed">Wind: 16 km/h</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col"></div>
+              <div class="col col-favourites-menu">
+                <select
+                  class="favourites-menu"
+                  id="favourites-menu"
+                  form="search-form"
+                >
+                  <option selected>Select Favourite</option>
+                  <option value="1">Berlin</option>
+                  <option value="2">London</option>
+                  <option value="3">Paris</option>
+                </select>
+              </div>
+              <div class="col"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card weather-forecast">
+          <div class="card-body body-weather-forecast">
+            <div class="row align-items-center">
+              <div class="col-7 day-forecast">Friday</div>
+              <div class="col-2 icon-forecast">
+                <i class="fa-solid fa-cloud-showers-heavy"></i>
+              </div>
+              <div class="col-3 temp-forecast">
+                20 <span class="degree-forecast">°C</span>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-7 day-forecast">Saturday</div>
+              <div class="col-2 icon-forecast">
+                <i class="fa-solid fa-cloud-bolt"></i>
+              </div>
+              <div class="col-3 temp-forecast">
+                23 <span class="degree-forecast">°C</span>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-7 day-forecast">Sunday</div>
+              <div class="col-2 icon-forecast">
+                <i class="fa-solid fa-cloud-rain"></i>
+              </div>
+              <div class="col-3 temp-forecast">
+                24 <span class="degree-forecast">°C</span>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-7 day-forecast">Monday</div>
+              <div class="col-2 icon-forecast">
+                <i class="fa-solid fa-cloud-rain"></i>
+              </div>
+              <div class="col-3 temp-forecast">
+                21 <span class="degree-forecast">°C</span>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-7 day-forecast">Tuesday</div>
+              <div class="col-2 icon-forecast">
+                <i class="fa-solid fa-cloud-rain"></i>
+              </div>
+              <div class="col-3 temp-forecast">
+                20 <span class="degree-forecast">°C</span>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-7 day-forecast">Wednesday</div>
+              <div class="col-2 icon-forecast">
+                <i class="fa-solid fa-cloud-showers-heavy"></i>
+              </div>
+              <div class="col-3 temp-forecast">
+                21 <span class="degree-forecast">°C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>Coded by Lianne de Winter</footer>
+      </div>
+    </div>
+    <script src="javascript/script.js"></script>
+  </body>
+</html>
