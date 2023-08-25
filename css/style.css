@@ -128,12 +128,13 @@ form,
 
 .date-time,
 .humidity,
-.wind {
+.wind,
+.description {
   padding-left: 3px;
   padding-right: 3px;
 }
 
-.precipitation,
+.description,
 .humidity,
 .wind {
   color: rgba(0, 0, 0, 0.6);
