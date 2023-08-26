@@ -140,6 +140,10 @@ form,
   color: rgba(0, 0, 0, 0.6);
 }
 
+.description {
+  text-transform: capitalize;
+}
+
 .icon-today,
 .temperature-today {
   display: inline;
