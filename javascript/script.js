@@ -1,16 +1,39 @@
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  return `${day}, ${hours}:${minutes}`;
+}
+
 function showTemperature(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.temperature.current);
   let humidityValue = Math.round(response.data.temperature.humidity);
   let windSpeed = Math.round(response.data.wind.speed);
   let desciptionText = response.data.condition.description;
-  let iconImage = response.data.condition.icon_url;
 
   temperatureToday.innerHTML = `${temperature}`;
   wind.innerHTML = `Wind: ${windSpeed} km/h`;
   humidity.innerHTML = `Humidity: ${humidityValue}%`;
   description.innerHTML = `${desciptionText}`;
-  iconToday.innerHTML = `img src="${iconImage}"`;
+  currentDateTime.innerHTML = formatDate(response.data.time * 1000);
 }
 
 function submitFunction(event) {
@@ -36,6 +59,7 @@ function showTemperatureCurrentLocation(response) {
   wind.innerHTML = `Wind: ${windSpeed} km/h`;
   humidity.innerHTML = `Humidity: ${humidityValue}%`;
   description.innerHTML = `${desciptionText}`;
+  currentDateTime.innerHTML = formatDate(response.data.time * 1000);
 }
 
 function getLocation(position) {
@@ -63,46 +87,9 @@ function addFunction(event) {
   }
 }
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-let now = new Date();
-let currentDateTime = document.querySelector("#current-date-time");
-
 let apiKey = "9fb66eat3c45068of64821d7cabe200f";
 let units = "metric";
-
-let day = days[now.getDay()];
-let date = now.getDate();
-let month = months[now.getMonth()];
-let year = now.getFullYear();
-let hour = now.getHours();
-let minutes = now.getMinutes();
-
-currentDateTime.innerHTML = `${day}, ${hour}:${minutes}`;
-
+let currentDateTime = document.querySelector("#current-date-time");
 let form = document.querySelector("#search-form");
 let submitButton = document.querySelector("#submit-button");
 let addButton = document.querySelector("#add-button");

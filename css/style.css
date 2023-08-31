@@ -24,6 +24,13 @@ form,
   margin-top: 20px;
 }
 
+ul {
+  padding: 0;
+}
+
+li.description {
+  text-transform: capitalize;
+}
 .container {
   padding: 30px;
 }
@@ -138,10 +145,6 @@ form,
 .humidity,
 .wind {
   color: rgba(0, 0, 0, 0.6);
-}
-
-.description {
-  text-transform: capitalize;
 }
 
 .icon-today,
