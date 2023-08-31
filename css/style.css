@@ -91,13 +91,16 @@ li.description {
   border-radius: 4px;
 }
 
-.icon-today,
+.col {
+  padding: 0 6px;
+}
+
 .temperature-today {
   font-size: 27px;
 }
 
 .icon-today {
-  padding: 5px;
+  max-width: 50px;
 }
 
 .temp-units {
@@ -116,14 +119,10 @@ li.description {
 }
 
 .favourites-menu {
-  padding: 2px 1px;
+  padding: 2px 0;
   background-color: white;
   border-radius: 4px;
   margin-top: 5px;
-}
-
-.col-favourites-menu {
-  padding: 0;
 }
 
 .city {
@@ -150,10 +149,6 @@ li.description {
 .icon-today,
 .temperature-today {
   display: inline;
-}
-
-.col-favourites-menu {
-  padding: 3px;
 }
 
 .body-weather-forecast {

@@ -23,17 +23,21 @@ function formatDate(timestamp) {
 }
 
 function showTemperature(response) {
-  console.log(response.data);
   let temperature = Math.round(response.data.temperature.current);
   let humidityValue = Math.round(response.data.temperature.humidity);
   let windSpeed = Math.round(response.data.wind.speed);
   let desciptionText = response.data.condition.description;
+  let iconDescription = response.data.condition.icon;
 
   temperatureToday.innerHTML = `${temperature}`;
   wind.innerHTML = `Wind: ${windSpeed} km/h`;
   humidity.innerHTML = `Humidity: ${humidityValue}%`;
   description.innerHTML = `${desciptionText}`;
   currentDateTime.innerHTML = formatDate(response.data.time * 1000);
+  iconToday.setAttribute(
+    "src",
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconDescription}.png`
+  );
 }
 
 function submitFunction(event) {
@@ -53,6 +57,7 @@ function showTemperatureCurrentLocation(response) {
   let humidityValue = Math.round(response.data.temperature.humidity);
   let windSpeed = Math.round(response.data.wind.speed);
   let desciptionText = response.data.condition.description;
+  let iconDescription = response.data.condition.icon;
 
   searchedCity.innerHTML = `${place}`;
   temperatureToday.innerHTML = `${temperature}`;
@@ -60,6 +65,10 @@ function showTemperatureCurrentLocation(response) {
   humidity.innerHTML = `Humidity: ${humidityValue}%`;
   description.innerHTML = `${desciptionText}`;
   currentDateTime.innerHTML = formatDate(response.data.time * 1000);
+  iconToday.setAttribute(
+    "src",
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconDescription}.png`
+  );
 }
 
 function getLocation(position) {
