@@ -122,7 +122,7 @@ li.description {
   padding: 2px 0;
   background-color: white;
   border-radius: 4px;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .city {
@@ -135,7 +135,8 @@ li.description {
 .date-time,
 .humidity,
 .wind,
-.description {
+.description,
+.menu {
   padding-left: 3px;
   padding-right: 3px;
 }

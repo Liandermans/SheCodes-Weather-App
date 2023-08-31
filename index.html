@@ -34,6 +34,7 @@
             placeholder="Enter city"
             id="entered-value"
             autofocus
+            autocomplete="off"
           /><i
             class="fa-solid fa-location-dot location-icon"
             id="get-location"
@@ -49,7 +50,7 @@
             class="add-button"
             id="add-button"
             type="button"
-            value="Add to Favourites"
+            value="Add to Favorites"
           />
         </form>
         <div class="card weather-today">
@@ -75,6 +76,18 @@
                   <li class="row date-time" id="current-date-time">
                     Thursday, 11:16
                   </li>
+                  <li class="row menu">
+                    <select
+                      class="favourites-menu"
+                      id="favourites-menu"
+                      form="search-form"
+                    >
+                      <option selected>Select Favorite</option>
+                      <option value="1">Berlin</option>
+                      <option value="2">London</option>
+                      <option value="3">Paris</option>
+                    </select>
+                  </li>
                 </ul>
               </div>
               <div class="col">
@@ -84,22 +97,6 @@
                   <li class="row wind" id="wind-speed">Wind: 16 km/h</li>
                 </ul>
               </div>
-            </div>
-            <div class="row">
-              <div class="col"></div>
-              <div class="col col-favourites-menu">
-                <select
-                  class="favourites-menu"
-                  id="favourites-menu"
-                  form="search-form"
-                >
-                  <option selected>Select Favourite</option>
-                  <option value="1">Berlin</option>
-                  <option value="2">London</option>
-                  <option value="3">Paris</option>
-                </select>
-              </div>
-              <div class="col"></div>
             </div>
           </div>
         </div>
