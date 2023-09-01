@@ -96,11 +96,11 @@ function searchLocation(event) {
 function addFunction(event) {
   event.preventDefault();
   if (searchInput.value) {
-    let sel = document.getElementById("favourites-menu");
-    let opt = document.createElement("option");
-    opt.value = "4";
-    opt.text = `${searchInput.value}`;
-    sel.add(opt, null);
+    let select = document.getElementById("favourites-menu");
+    let option = document.createElement("option");
+    option.text = `${searchInput.value}`;
+    option.selected = true;
+    select.add(option, null);
   }
 }
 
