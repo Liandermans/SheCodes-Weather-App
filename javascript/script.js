@@ -30,6 +30,8 @@ function showTemperature(response) {
   let iconDescription = response.data.condition.icon;
   let place = response.data.city;
 
+  celsiusTemp = Math.round(response.data.temperature.current);
+
   searchedCity.innerHTML = `${place}`;
   temperatureToday.innerHTML = `${temperature}`;
   wind.innerHTML = `Wind: ${windSpeed} km/h`;
@@ -61,6 +63,8 @@ function showTemperatureCurrentLocation(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let desciptionText = response.data.condition.description;
   let iconDescription = response.data.condition.icon;
+
+  celsiusTemp = Math.round(response.data.temperature.current);
 
   searchedCity.innerHTML = `${place}`;
   temperatureToday.innerHTML = `${temperature}`;
@@ -102,16 +106,17 @@ function addFunction(event) {
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let fahrenheitTemp = Math.round(18 * 1.8 + 32);
-  let temperatureToday = document.querySelector("#temperature-today");
+  let fahrenheitTemp = Math.round(celsiusTemp * 1.8 + 32);
   temperatureToday.innerHTML = fahrenheitTemp;
 }
 
-search("Amsterdam");
+function convertToCelsius(event) {
+  event.preventDefault();
+  temperatureToday.innerHTML = celsiusTemp;
+}
 
 let currentDateTime = document.querySelector("#current-date-time");
 let form = document.querySelector("#search-form");
-let submitButton = document.querySelector("#submit-button");
 let addButton = document.querySelector("#add-button");
 let searchedCity = document.querySelector("#searched-city");
 let wind = document.querySelector("#wind-speed");
@@ -122,9 +127,13 @@ let locationSelector = document.querySelector("#get-location");
 let iconToday = document.querySelector("#icon-today");
 let description = document.querySelector("#description");
 let fahrenheitLink = document.querySelector("#fahrenheit");
+let celsiusLink = document.querySelector("#celsius");
 let celsiusTemp = null;
 
 form.addEventListener("submit", submitSearch);
 locationSelector.addEventListener("click", searchLocation);
 addButton.addEventListener("click", addFunction);
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
+celsiusLink.addEventListener("click", convertToCelsius);
+
+search("Amsterdam");
