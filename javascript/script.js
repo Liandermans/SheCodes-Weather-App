@@ -98,9 +98,9 @@ function addFunction(event) {
   if (searchInput.value) {
     let select = document.getElementById("favourites-menu");
     let option = document.createElement("option");
+    option.value = "1";
     option.text = `${searchInput.value}`;
-    option.selected = true;
-    select.add(option, null);
+    select.add(option);
   }
 }
 
