@@ -28,7 +28,9 @@ function showTemperature(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let desciptionText = response.data.condition.description;
   let iconDescription = response.data.condition.icon;
+  let place = response.data.city;
 
+  searchedCity.innerHTML = `${place}`;
   temperatureToday.innerHTML = `${temperature}`;
   wind.innerHTML = `Wind: ${windSpeed} km/h`;
   humidity.innerHTML = `Humidity: ${humidityValue}%`;
@@ -40,15 +42,16 @@ function showTemperature(response) {
   );
 }
 
-function submitFunction(event) {
+function search(city) {
+  let apiKey = "9fb66eat3c45068of64821d7cabe200f";
+  let units = "metric";
+  let weatherApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
+  axios.get(weatherApiUrl).then(showTemperature);
+}
+
+function submitSearch(event) {
   event.preventDefault();
-  if (searchInput.value) {
-    searchedCity.innerHTML = `${searchInput.value}`;
-
-    let weatherApiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchInput.value}&key=${apiKey}&units=${units}`;
-
-    axios.get(weatherApiUrl).then(showTemperature);
-  }
+  search(searchInput.value);
 }
 
 function showTemperatureCurrentLocation(response) {
@@ -74,6 +77,8 @@ function showTemperatureCurrentLocation(response) {
 function getLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
+  let apiKey = "9fb66eat3c45068of64821d7cabe200f";
+  let units = "metric";
   let weatherApiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=${units}`;
 
   axios.get(weatherApiUrl).then(showTemperatureCurrentLocation);
@@ -102,8 +107,8 @@ function convertToFahrenheit(event) {
   temperatureToday.innerHTML = fahrenheitTemp;
 }
 
-let apiKey = "9fb66eat3c45068of64821d7cabe200f";
-let units = "metric";
+search("Amsterdam");
+
 let currentDateTime = document.querySelector("#current-date-time");
 let form = document.querySelector("#search-form");
 let submitButton = document.querySelector("#submit-button");
@@ -119,7 +124,7 @@ let description = document.querySelector("#description");
 let fahrenheitLink = document.querySelector("#fahrenheit");
 let celsiusTemp = null;
 
-submitButton.addEventListener("click", submitFunction);
+form.addEventListener("submit", submitSearch);
 locationSelector.addEventListener("click", searchLocation);
 addButton.addEventListener("click", addFunction);
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
