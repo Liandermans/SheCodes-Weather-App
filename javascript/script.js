@@ -136,4 +136,4 @@ addButton.addEventListener("click", addFunction);
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 celsiusLink.addEventListener("click", convertToCelsius);
 
-search("Amsterdam");
+search("Berlin");
