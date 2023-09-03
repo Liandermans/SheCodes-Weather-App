@@ -70,8 +70,7 @@ li.description {
   cursor: pointer;
 }
 
-.submit-button,
-.add-button {
+.submit-button {
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
@@ -81,8 +80,7 @@ li.description {
   color: #fffdfb;
   transition: all 200ms ease-in-out;
 }
-.submit-button:hover,
-.add-button:hover {
+.submit-button:hover {
   background-color: rgba(8, 129, 163, 0.7);
   cursor: pointer;
 }
@@ -119,14 +117,6 @@ li.description {
 .fahrenheit:hover {
   text-decoration: underline;
   cursor: pointer;
-}
-
-.favourites-menu {
-  padding: 2px 0;
-  background-color: white;
-  border-radius: 4px;
-  margin-top: 15px;
-  max-width: 90%;
 }
 
 .city {

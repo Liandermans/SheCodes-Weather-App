@@ -93,17 +93,6 @@ function searchLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocation);
 }
 
-function addFunction(event) {
-  event.preventDefault();
-  if (searchInput.value) {
-    let select = document.getElementById("favourites-menu");
-    let option = document.createElement("option");
-    option.value = "1";
-    option.text = `${searchInput.value}`;
-    select.add(option);
-  }
-}
-
 function convertToFahrenheit(event) {
   event.preventDefault();
   let fahrenheitTemp = Math.round(celsiusTemp * 1.8 + 32);
@@ -117,7 +106,6 @@ function convertToCelsius(event) {
 
 let currentDateTime = document.querySelector("#current-date-time");
 let form = document.querySelector("#search-form");
-let addButton = document.querySelector("#add-button");
 let searchedCity = document.querySelector("#searched-city");
 let wind = document.querySelector("#wind-speed");
 let humidity = document.querySelector("#humidity");
@@ -132,7 +120,6 @@ let celsiusTemp = null;
 
 form.addEventListener("submit", submitSearch);
 locationSelector.addEventListener("click", searchLocation);
-addButton.addEventListener("click", addFunction);
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 celsiusLink.addEventListener("click", convertToCelsius);
 
