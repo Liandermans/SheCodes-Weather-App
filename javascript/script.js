@@ -95,7 +95,7 @@ function showTemperature(response) {
 
   searchedCity.innerHTML = `${place}`;
   temperatureToday.innerHTML = `${temperature}`;
-  wind.innerHTML = `Wind: ${windSpeed} km/h`;
+  wind.innerHTML = `Wind: ${windSpeed} m/s`;
   humidity.innerHTML = `Humidity: ${humidityValue}%`;
   description.innerHTML = `${desciptionText}`;
   currentDateTime.innerHTML = formatDate(response.data.time * 1000);
@@ -156,17 +156,6 @@ function searchLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocation);
 }
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let fahrenheitTemp = Math.round(celsiusTemp * 1.8 + 32);
-  temperatureToday.innerHTML = fahrenheitTemp;
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  temperatureToday.innerHTML = celsiusTemp;
-}
-
 let currentDateTime = document.querySelector("#current-date-time");
 let form = document.querySelector("#search-form");
 let searchedCity = document.querySelector("#searched-city");
@@ -177,13 +166,9 @@ let searchInput = document.querySelector("#entered-value");
 let locationSelector = document.querySelector("#get-location");
 let iconToday = document.querySelector("#icon-today");
 let description = document.querySelector("#description");
-let fahrenheitLink = document.querySelector("#fahrenheit");
-let celsiusLink = document.querySelector("#celsius");
 let celsiusTemp = null;
 
 form.addEventListener("submit", submitSearch);
 locationSelector.addEventListener("click", searchLocation);
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-celsiusLink.addEventListener("click", convertToCelsius);
 
 search("Berlin");

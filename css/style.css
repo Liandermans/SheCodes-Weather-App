@@ -104,19 +104,13 @@ li.description {
   top: -5px;
 }
 
-.temp-units {
+.temp-unit {
   display: inline;
   position: absolute;
-  left: 94px;
+  left: 95px;
   top: 30px;
   font-size: 13px;
   padding-left: 2px;
-}
-
-.celsius:hover,
-.fahrenheit:hover {
-  text-decoration: underline;
-  cursor: pointer;
 }
 
 .city {
