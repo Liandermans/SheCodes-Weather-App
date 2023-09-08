@@ -22,6 +22,42 @@ function formatDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = "";
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="row align-items-center">
+      <div class="col-6 day-forecast">${day}</div>
+      <div class="col-2 icon-forecast">
+        <img
+          src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+          alt="Weather icon"
+          class="weather-icon"
+          id="icon-friday"
+        />
+      </div>
+      <div class="col-4 temp-forecast">
+        <span class="temp-forecast-max">20</span> |
+        <span class="temp-forecast-min">15</span>
+        <span class="degree-forecast">°C</span>
+      </div>
+    </div>`;
+    forecastElement.innerHTML = forecastHTML;
+  });
+}
+
 function showTemperature(response) {
   let temperature = Math.round(response.data.temperature.current);
   let humidityValue = Math.round(response.data.temperature.humidity);
@@ -124,3 +160,4 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 celsiusLink.addEventListener("click", convertToCelsius);
 
 search("Berlin");
+displayForecast();
