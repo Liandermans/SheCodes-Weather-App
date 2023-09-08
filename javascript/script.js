@@ -45,7 +45,7 @@ function showForecast(response) {
   let forecastHTML = "";
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index > 0) {
       let iconURL = forecastDay.condition.icon_url;
       let iconDescription = forecastDay.condition.description;
       let tempMax = Math.round(forecastDay.temperature.maximum);
