@@ -95,7 +95,7 @@ li.description {
 }
 
 .temperature-today {
-  font-size: 27px;
+  font-size: 23px;
 }
 
 .weather-icon {
@@ -107,14 +107,14 @@ li.description {
 .temp-unit {
   display: inline;
   position: absolute;
-  left: 95px;
-  top: 30px;
+  left: 92px;
+  top: 29px;
   font-size: 13px;
   padding-left: 2px;
 }
 
 .city {
-  font-size: 26px;
+  font-size: 23px;
   font-weight: 500;
   padding-left: 3px;
   padding-right: 3px;
