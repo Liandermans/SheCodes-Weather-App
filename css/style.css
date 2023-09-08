@@ -98,7 +98,7 @@ li.description {
   font-size: 27px;
 }
 
-.weather-icon-today {
+.weather-icon {
   max-width: 55px;
   position: relative;
   top: -5px;
@@ -147,18 +147,26 @@ li.description {
 }
 
 .body-weather-forecast {
-  padding: 16px 75px;
+  padding: 16px 100px;
 }
 
-.day-forecast,
-.temp-forecast {
+.day-forecast {
   font-size: 20px;
 }
 
+.temp-forecast {
+  font-size: 16px;
+}
+
 .degree-forecast {
-  font-size: 14px;
+  font-size: 13px;
   position: relative;
-  top: -4px;
+  top: -2px;
+}
+
+.temp-forecast-min {
+  opacity: 0.6;
+  font-size: 16px;
 }
 
 .icon-forecast {
