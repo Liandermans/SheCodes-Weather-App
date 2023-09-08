@@ -139,6 +139,8 @@ function showTemperatureCurrentLocation(response) {
     "src",
     `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconDescription}.png`
   );
+
+  getForecast(response.data.coordinates);
 }
 
 function getLocation(position) {
