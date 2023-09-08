@@ -22,7 +22,8 @@ function formatDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function showForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = "";
@@ -58,6 +59,15 @@ function displayForecast() {
   });
 }
 
+function getForecast(coordinates) {
+  let apiKey = "9fb66eat3c45068of64821d7cabe200f";
+  let units = "metric";
+  let lon = coordinates.longitude;
+  let lat = coordinates.latitude;
+  let weatherApiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
+  axios.get(weatherApiUrl).then(showForecast);
+}
+
 function showTemperature(response) {
   let temperature = Math.round(response.data.temperature.current);
   let humidityValue = Math.round(response.data.temperature.humidity);
@@ -78,6 +88,8 @@ function showTemperature(response) {
     "src",
     `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconDescription}.png`
   );
+
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {
@@ -160,4 +172,3 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 celsiusLink.addEventListener("click", convertToCelsius);
 
 search("Berlin");
-displayForecast();
