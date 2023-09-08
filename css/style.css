@@ -141,7 +141,7 @@ li.description {
 }
 
 .body-weather-forecast {
-  padding: 16px 100px;
+  padding: 16px 85px;
 }
 
 .day-forecast {
@@ -161,9 +161,4 @@ li.description {
 .temp-forecast-min {
   opacity: 0.6;
   font-size: 16px;
-}
-
-.icon-forecast {
-  font-size: 25px;
-  text-align: right;
 }
