@@ -56,14 +56,14 @@ function showForecast(response) {
         forecastHTML +
         `<div class="row align-items-center">
       <div class="col-6 day-forecast">${day}</div>
-      <div class="col-2 icon-forecast">
+      <div class="col-sm-2 icon-forecast">
         <img
           src=${iconURL}
           alt=${iconDescription}
           class="weather-icon"
         />
       </div>
-      <div class="col-4 temp-forecast">
+      <div class="col-sm-4 temp-forecast">
         <span class="temp-forecast-max">${tempMax}</span> |
         <span class="temp-forecast-min">${tempMin}</span>
         <span class="degree-forecast">°C</span>
